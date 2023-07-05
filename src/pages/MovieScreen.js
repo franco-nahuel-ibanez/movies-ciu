@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { fetchMovies } from '../services/fetchMovies'
 import { IMAGE_URL } from '../constants/urls'
@@ -16,12 +16,12 @@ const MovieScreen = () => {
       const data = await fetchMovies(`${type}/${id}`);
       setMovie(data);
     };
-  
+
     const getFavorites = () => {
       const storedFavorites = JSON.parse(localStorage.getItem('favoritas')) || [];
       setFavorites(storedFavorites);
     };
-  
+
     getMovie();
     getFavorites();
   }, [type, id]);
@@ -48,23 +48,23 @@ const MovieScreen = () => {
     <Container fluid className='w-75'>
       <Row className='my-3'>
         <Col className='d-flex justify-content-end'>
-        <i className="bi bi-1-square"></i>
+          <i className="bi bi-1-square"></i>
           <Button
             onClick={handleBack}
             variant="outline-dark"
             className='d-flex align-items-center gap-2'>
-              <ArrowLeft />
-              Back
-            </Button>
+            <ArrowLeft />
+            Back
+          </Button>
         </Col>
       </Row>
 
       <Row className='my-3'>
-        <Col>      
+        <Col>
           <h1 className='text-center text-uppercase fs-1 fw-bold'>
             {movie.original_title || movie.original_name}
           </h1>
-          { movie.tagline && (
+          {movie.tagline && (
             <h3 className='text-center fs-3'>
               {movie.tagline}
             </h3>
@@ -76,19 +76,19 @@ const MovieScreen = () => {
         <Col>
           {
             isFavorite(movie.id)
-            ? ( <Badge bg='warning'>Favorita <StarFill size={15}/> </Badge> )
-            : (<Button onClick={handleAddToFavorites} variant='outline-dark' className='d-flex align-items-center gap-2'>
+              ? (<Badge bg='warning'>Favorita <StarFill size={15} /> </Badge>)
+              : (<Button onClick={handleAddToFavorites} variant='outline-dark' className='d-flex align-items-center gap-2'>
                 Agregar a favoritos
                 <StarFill />
               </Button>)
           }
         </Col>
       </Row>
-      
+
       <Row>
         <Col xs={12} md={6}>
           <img
-            src={ IMAGE_URL + movie.poster_path }
+            src={IMAGE_URL + movie.poster_path}
             alt={movie.original_title || movie.original_name}
             className='img-fluid mb-3 border border-dark rounded shadow'
           />
@@ -102,18 +102,18 @@ const MovieScreen = () => {
 
           <p>
             <strong>Calificación: </strong>
-            <Badge bg="dark">{movie.vote_average}</Badge>             
+            <Badge bg="dark">{movie.vote_average}</Badge>
           </p>
 
           {
             movie.production_countries && (
               <Col className='d-flex gap-3 my-2'>
                 <strong>Pais:</strong>
-                  {
-                    movie.production_countries.map((country) => (
-                      <Badge key={country.iso_3166_1} bg="dark">{country.name}</Badge>
-                    ))
-                  }
+                {
+                  movie.production_countries.map((country) => (
+                    <Badge key={country.iso_3166_1} bg="dark">{country.name}</Badge>
+                  ))
+                }
               </Col>
             )
           }
@@ -122,15 +122,15 @@ const MovieScreen = () => {
             movie.genres && (
               <Col className='d-flex gap-3 flex-wrap'>
                 <strong>Generos:</strong>
-                  {
-                    movie.genres && movie.genres.map((genre) => (
-                      <Badge key={genre.id} bg="dark">{genre.name}</Badge>
-                    ))
-                  }
+                {
+                  movie.genres && movie.genres.map((genre) => (
+                    <Badge key={genre.id} bg="dark">{genre.name}</Badge>
+                  ))
+                }
               </Col>
             )
           }
-            
+
           <p><strong>Productoras:</strong></p>
           <ul
             style={{
@@ -146,7 +146,7 @@ const MovieScreen = () => {
                   return (
                     <li key={company.id}>
                       <img
-                        src={IMAGE_URL + company.logo_path }
+                        src={IMAGE_URL + company.logo_path}
                         alt={company.name}
                         className='img-fluid mb-3 border border-gray rounded shadow w-50'
                       />
@@ -176,7 +176,7 @@ const MovieScreen = () => {
           }
 
           <img
-            src={ IMAGE_URL + movie.backdrop_path }
+            src={IMAGE_URL + movie.backdrop_path}
             alt='loading'
             className='img-fluid mb-3 rounded shadow'
           />

@@ -3,7 +3,7 @@ import { IMAGE_URL } from '../constants/urls';
 import { useNavigate } from 'react-router-dom';
 
 const MovieCard = ({ id, image, title, type, footer }) => {
-  
+
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -13,9 +13,9 @@ const MovieCard = ({ id, image, title, type, footer }) => {
   return (
     <>
       <Card>
-        <Card.Img 
+        <Card.Img
           variant="top"
-          src={ IMAGE_URL + image}
+          src={IMAGE_URL + image}
           alt={`poster de pelicula: ${title}`}
           style={{ cursor: "pointer" }}
           onClick={handleClick}

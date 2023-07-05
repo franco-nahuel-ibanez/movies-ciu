@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
 import { Button, Col, Container, Row } from 'react-bootstrap'
 import MovieCard from '../components/MovieCard'
 import { MOVIE } from '../constants/type'
@@ -20,15 +20,15 @@ const FavoritesScreen = () => {
   const footer = (id) => {
     return (
       <div
-        style={{ display: "flex", justifyContent: "center"}}
+        style={{ display: "flex", justifyContent: "center" }}
       >
         <Button
           variant="outline-danger"
-          style={{display: "flex", alignItems: "center", gap: "5px"}}
-          onClick={() => handleDelete(id)}  
+          style={{ display: "flex", alignItems: "center", gap: "5px" }}
+          onClick={() => handleDelete(id)}
         >
           <TrashFill />
-          Eliminar  
+          Eliminar
         </Button>
       </div>
     )
@@ -47,20 +47,20 @@ const FavoritesScreen = () => {
       <h2>Favoritas</h2>
       <Row xs={1} sm={2} md={3} lg={4} xl={6}>
         {
-         movies && movies.map((movie) => (
-          <Col
-            className="my-2"
-            key={movie.id}  
-          >
-            <MovieCard 
-              id={movie.id}
-              image={movie.poster_path}
-              title={movie.original_title || movie.original_name}
-              type={MOVIE}
-              footer={footer}
-            />
-          </Col>
-        ))}
+          movies && movies.map((movie) => (
+            <Col
+              className="my-2"
+              key={movie.id}
+            >
+              <MovieCard
+                id={movie.id}
+                image={movie.poster_path}
+                title={movie.original_title || movie.original_name}
+                type={MOVIE}
+                footer={footer}
+              />
+            </Col>
+          ))}
       </Row>
     </Container>
   )

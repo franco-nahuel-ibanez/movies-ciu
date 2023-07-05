@@ -1,32 +1,34 @@
-import { Button, Form } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import BNavbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
+import { House, Star, CameraReelsFill } from 'react-bootstrap-icons'
 
 const Navbar = () => {
   return (
-    <BNavbar expand="lg" className="bg-body-tertiary px-5">
-      <Container fluid>
-        <BNavbar.Brand href="#">BNavbar scroll</BNavbar.Brand>
-        <BNavbar.Toggle aria-controls="navbarScroll" />
-        <BNavbar.Collapse id="navbarScroll">
-          <Form className="d-flex flex-grow-1 my-2 my-lg-0">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
-          </Form>
-          <div className="vr mx-2"></div>
-          <Nav
-            className="me-auto"
-            style={{ maxHeight: '100px' }}
-            navbarScroll
-          >
-            <Nav.Link href="#action1">Home</Nav.Link>
+    <BNavbar collapseOnSelect expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
+      <Container>
+        <BNavbar.Brand>
+          <Link to="/" className="navbar-brand">
+            <CameraReelsFill className="me-2" size={30}/>
+            Parcial-Movies
+          </Link>  
+        </BNavbar.Brand>
+        <BNavbar.Toggle aria-controls="responsive-navbar-nav" />
+        <BNavbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Item>
+              <Link to="/" className="nav-link">
+                <House className="me-2" />
+                Inicio
+              </Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Link to="/favoritas" className="nav-link">
+                <Star className="me-2" />
+                Favoritas
+              </Link>
+            </Nav.Item>
           </Nav>
         </BNavbar.Collapse>
       </Container>
