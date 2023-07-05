@@ -6,7 +6,12 @@ import { MOVIE, SERIE } from '../constants/type'
 
 const HomeScreen = () => {
   return (
-    <>
+    <div
+      style={{
+        marginTop: "60px",
+        marginBottom: "100px"
+      }}
+    >
       <MoviesByCategories
         section="Peliculas populares"
         category={POPULAR_MOVIES}
@@ -37,7 +42,7 @@ const HomeScreen = () => {
         type={SERIE}
       />
 
-    </>
+    </div>
   )
 }
 

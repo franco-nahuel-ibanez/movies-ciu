@@ -4,6 +4,7 @@ import MovieScreen from './pages/MovieScreen';
 import Navbar from './components/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FavoritesScreen from './pages/FavoritesScreen';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/:favoritas" element={<FavoritesScreen />} />
         <Route path="/:type/:id" element={<MovieScreen />} />
       </Routes>
+      <Footer />
     </>
   );
 }

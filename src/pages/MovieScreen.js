@@ -45,7 +45,13 @@ const MovieScreen = () => {
   };
 
   return (
-    <Container fluid className='w-75'>
+    <Container
+      fluid
+      className='w-75'
+      style={{
+        marginBottom: "100px"
+      }}  
+    >
       <Row className='my-3'>
         <Col className='d-flex justify-content-end'>
           <i className="bi bi-1-square"></i>

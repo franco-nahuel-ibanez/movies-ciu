@@ -20,7 +20,8 @@ const FavoritesScreen = () => {
   const footer = (id) => {
     return (
       <div
-        style={{ display: "flex", justifyContent: "center" }}
+        className='my-4'
+        style={{ display: "flex", justifyContent: "center"}}
       >
         <Button
           variant="outline-danger"
@@ -43,7 +44,13 @@ const FavoritesScreen = () => {
 
 
   return (
-    <Container fluid className='w-75'>
+    <Container 
+      fluid
+      className='w-75'
+      style={{
+        marginBottom: "100px"
+      }}  
+    >
       <h2>Favoritas</h2>
       <Row xs={1} sm={2} md={3} lg={4} xl={6}>
         {
